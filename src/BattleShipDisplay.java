@@ -5,6 +5,76 @@ import java. util.*;
 import javax.swing.*;
 
 public class BattleShipDisplay {
+
+    public static void shipLocation(String[][] pegBoard, int size_pegBoard, int length_ship, String symbol) {
+        Random ranGen = new Random();
+
+        int ship_row_position;
+        int ship_col_position;
+
+        String[] directions = {"horizontal", "vertical"};
+        int ver_or_hor = ranGen.nextInt(2);
+
+        if (directions[ver_or_hor].equals("horizontal")) {
+            ship_row_position = ranGen.nextInt(size_pegBoard);
+            ship_col_position = ranGen.nextInt(size_pegBoard - length_ship + 1);
+
+            while (!canPlaceShip(pegBoard, length_ship, ship_row_position, ship_col_position, "horizontal")) {
+                ship_row_position = ranGen.nextInt(size_pegBoard);
+                ship_col_position = ranGen.nextInt(size_pegBoard - length_ship + 1);
+            }
+
+            for (int num = 0; num < length_ship; num++){
+                pegBoard[ship_row_position][ship_col_position + num] = symbol;
+            }
+
+        }else{
+            ship_row_position = ranGen.nextInt(size_pegBoard - length_ship + 1);
+            ship_col_position = ranGen.nextInt(size_pegBoard);
+
+            while (!canPlaceShip(pegBoard, length_ship, ship_row_position, ship_col_position, "vertical")) {
+                ship_row_position = ranGen.nextInt(size_pegBoard - length_ship + 1);
+                ship_col_position = ranGen.nextInt(size_pegBoard);
+            }
+
+            for(int num = 0; num < length_ship; num++){
+                pegBoard[ship_row_position + num][ship_col_position] = symbol;
+            }
+        }
+    }
+
+    public static boolean canPlaceShip(String[][] pegBoard, int length_ship,
+                                       int ship_row_position, int ship_col_position, String direction){
+        boolean freeSpace = true;
+
+        if (direction.equals("horizontal")){
+            for (int num = 0; num < length_ship; num++){
+                if (!pegBoard[ship_row_position][ship_col_position + num].equals("- ")){
+                    freeSpace = false;
+                    break;
+                }
+            }
+        }else {
+            for (int num = 0; num < length_ship; num++){
+                if (!pegBoard[ship_row_position + num][ship_col_position].equals("- ")){
+                    freeSpace = false;
+                    break;
+                }
+            }
+        }
+        return freeSpace;
+    }
+
+    public static String displayBattle(String[][] pegBoard) {
+        String pegBoardDisplay = "";
+        for (int row = 0; row < pegBoard.length; row++) {
+            for (int col = 0; col < pegBoard[0].length; col++) {
+                pegBoardDisplay += pegBoard[row][col] + "    ";
+            }
+            pegBoardDisplay += "\n";
+        }
+        return pegBoardDisplay;
+    }
     public static void main(String[] args) {
         String intro_prompt = "<html><h2>Welcome to Battleships Peg Board!</h2>" +
                               "This program will let you place your battleships randomly<br>" +
@@ -94,82 +164,12 @@ public class BattleShipDisplay {
             }
         }
 
-        String terminate_prompt = "<html><h3>Hi Dr. Anderson, the program is end. Hope you like it!</h3>" +
-                                  "P/s: This time, we are sure that it is definitely worth full 130 points.<br>" +
+        String terminate_prompt = "<html><h3>Hi, the program is end. Hope you like it!</h3>" +
+                                  "P/s: This time, it is definitely worth full 130 points.<br>" +
                                   "Please click OK to out!";
         icon = new ImageIcon("my_battleship.png");
         JOptionPane.showMessageDialog(null, terminate_prompt,
                 "          ". repeat(10) + "Goodbye", 1, icon);
-    }
-
-    public static void shipLocation(String[][] pegBoard, int size_pegBoard, int length_ship, String symbol) {
-        Random ranGen = new Random();
-
-        int ship_row_position;
-        int ship_col_position;
-
-        String[] directions = {"horizontal", "vertical"};
-        int ver_or_hor = ranGen.nextInt(2);
-
-        if (directions[ver_or_hor].equals("horizontal")) {
-            ship_row_position = ranGen.nextInt(size_pegBoard);
-            ship_col_position = ranGen.nextInt(size_pegBoard - length_ship + 1);
-
-            while (!canPlaceShip(pegBoard, length_ship, ship_row_position, ship_col_position, "horizontal")) {
-                ship_row_position = ranGen.nextInt(size_pegBoard);
-                ship_col_position = ranGen.nextInt(size_pegBoard - length_ship + 1);
-            }
-
-            for (int num = 0; num < length_ship; num++){
-                pegBoard[ship_row_position][ship_col_position + num] = symbol;
-            }
-
-        }else{
-            ship_row_position = ranGen.nextInt(size_pegBoard - length_ship + 1);
-            ship_col_position = ranGen.nextInt(size_pegBoard);
-
-            while (!canPlaceShip(pegBoard, length_ship, ship_row_position, ship_col_position, "vertical")) {
-                ship_row_position = ranGen.nextInt(size_pegBoard - length_ship + 1);
-                ship_col_position = ranGen.nextInt(size_pegBoard);
-            }
-
-            for(int num = 0; num < length_ship; num++){
-                pegBoard[ship_row_position + num][ship_col_position] = symbol;
-            }
-        }
-    }
-
-    public static boolean canPlaceShip(String[][] pegBoard, int length_ship,
-                                       int ship_row_position, int ship_col_position, String direction){
-        boolean freeSpace = true;
-
-        if (direction.equals("horizontal")){
-            for (int num = 0; num < length_ship; num++){
-                if (!pegBoard[ship_row_position][ship_col_position + num].equals("- ")){
-                    freeSpace = false;
-                    break;
-                }
-            }
-        }else {
-            for (int num = 0; num < length_ship; num++){
-                if (!pegBoard[ship_row_position + num][ship_col_position].equals("- ")){
-                    freeSpace = false;
-                    break;
-                }
-            }
-        }
-        return freeSpace;
-    }
-
-    public static String displayBattle(String[][] pegBoard) {
-        String pegBoardDisplay = "";
-        for (int row = 0; row < pegBoard.length; row++) {
-            for (int col = 0; col < pegBoard[0].length; col++) {
-                pegBoardDisplay += pegBoard[row][col] + "    ";
-            }
-            pegBoardDisplay += "\n";
-        }
-        return pegBoardDisplay;
     }
 }
 
