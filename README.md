@@ -23,8 +23,8 @@ My program has a simple solution to advoid overlapps that i wrote a method to ch
 
 I also allow user to:
 + Pick the size of the square board (they can pick any, 4\*4, 5\*5, 10\*10 or even 30\*30 but better in between 4\*4 and 20\*20).
-+ Pick the maximum length of a ship they want to have (so they can have at least one ship with that max length and other smaller ships
-the max length of a ship has to smaller than the size the the board they chose).
++ Pick the maximum length of a ship they want to have (so they can have at least one ship with that max length and other ships
+can be equal or smaller, also maximum length of a ship cannot exceed the board size).
 + Pick how many ships they like to have (they can pick up to maximum 8 ships, the number of ships should smaller than the board size)
 
 Let's say that user will always have at least one ship with the max length they want, and can have other ships 
