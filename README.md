@@ -1,7 +1,6 @@
 # Introduction to my Battle-Ship-Display program
 
-<html><h3>This program is one of my assignments that I had to do for my first Java class. It displays the Peg board for 
-Battleship Game.</h3>
+<html><h3>This program is one of my Java assignments. It displays the Peg board for Battleship Game.</h3>
 
 My professor required us to implement a program that will initialize a battle ship game board with a single 5 unit long ship, 
 positioned randomly but legally within the confines of the game board as you can see my program below.
