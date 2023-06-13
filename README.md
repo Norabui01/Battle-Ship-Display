@@ -11,10 +11,10 @@ positioned randomly but legally within the confines of the game board as you can
 
 (The ship has to be randomly located horizontal or vertical in all 4 quadrants of the square board)
 
-<h3>However, she also gives extra credits for who can display multiple ships without overlapps and also allow user 
+<h3>However, she also gives extra credits for who can display multiple ships without overlaps and also allow user 
 to choose the board's size, ship's size and the number of ships. I was excited to do that extra credits part <^_^></h3>
 
-My program has a simple solution to advoid overlapps that i wrote a method to check the location that can place a ship.
+My program has a simple solution to advoid overlaps that i wrote a method to check the location that can place a ship.
 
 
 <img src="https://user-images.githubusercontent.com/101363199/211140567-07413947-390f-4073-89c9-eb3b6c5433b4.png" width="352" height="280">
