@@ -56,7 +56,7 @@ For example: User chooses a board with size 10\*10, and the max length ship is 5
 (That big board can have 3 ships with max length of 5 units, x-symbol, n-symbol and v-symbol)
 
 
-<h3>Finally, I received full credit + full extra credits <^ - ^>!</h3>
+
 
 
      
