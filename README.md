@@ -1,4 +1,4 @@
-# Introduction to my Battle-Ship-Display program
+# Battle-Ship-Display program.
 
 <html><h3>This program is one of my Java assignments. It displays the Peg board for Battleship Game.</h3>
 
